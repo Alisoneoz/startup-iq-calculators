@@ -185,66 +185,71 @@ export default function Calculators() {
           {calculators.map(calculator => (
             <div
               key={calculator.id}
-              className={`calculator bg-white p-6 rounded-lg shadow-md ${
+              className={`calculator bg-white p-6 rounded-lg shadow-md h-full flex flex-col justify-between ${
                 activeCategory !== 'all' && activeCategory !== calculator.category 
                   ? 'hidden' 
                   : ''
               }`}
             >
-              <h2 className="text-2xl font-semibold mb-4 text-startup-iq-green">
-                {calculator.title}
-              </h2>
-              
-              <form
-                onSubmit={(e) => handleSubmit(e, calculator)}
-                className="space-y-4"
-              >
-                {calculator.fields.map(field => (
-                  <div key={field.id}>
-                    <label className="block text-sm font-medium text-gray-700">
-                      {field.label}
-                      <span className="tooltip ml-1 cursor-help relative group">
-                        ⓘ
-                        <span className="tooltiptext invisible group-hover:visible absolute z-10 w-48 bg-black text-white text-xs rounded py-1 px-2 -right-1 bottom-full mb-2">
-                          {field.tooltip}
-                        </span>
-                      </span>
-                    </label>
-                    <input
-                      type="number"
-                      name={field.id}
-                      min="0"
-                      step="1"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
-                               focus:border-startup-iq-green focus:ring focus:ring-green-600 
-                               focus:ring-opacity-50"
-                      required
-                    />
-                  </div>
-                ))}
+              <div>
+                <h2 className="text-2xl font-semibold mb-4 text-startup-iq-green">
+                  {calculator.title}
+                </h2>
                 
-                <button
-                  type="submit"
-                  className="w-full bg-startup-iq-green text-white px-4 py-2 rounded 
-                           hover:bg-startup-iq-green focus:outline-none focus:ring-2 
-                           focus:ring-startup-iq-green focus:ring-opacity-50 
-                           transition-colors"
+                <form
+                  onSubmit={(e) => handleSubmit(e, calculator)}
+                  className="space-y-4"
                 >
-                  Calculate
-                </button>
-              </form>
+                  <div className="space-y-4">
+                    {calculator.fields.map(field => (
+                      <div key={field.id}>
+                        <label className="block text-sm font-medium text-gray-700">
+                          {field.label}
+                          <span className="tooltip ml-1 cursor-help relative group">
+                            ⓘ
+                            <span className="tooltiptext invisible group-hover:visible absolute z-10 w-48 bg-black text-white text-xs rounded py-1 px-2 -right-1 bottom-full mb-2">
+                              {field.tooltip}
+                            </span>
+                          </span>
+                        </label>
+                        <input
+                          type="number"
+                          name={field.id}
+                          min="0"
+                          step="1"
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
+                                   focus:border-startup-iq-green focus:ring focus:ring-startup-iq-green 
+                                   focus:ring-opacity-50"
+                          required
+                        />
+                      </div>
+                    ))}
+                  </div>
 
-              {calculatorResults[calculator.id] && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <p className="font-bold text-startup-iq-green">
-                    Result: {calculatorResults[calculator.id].result}
-                  </p>
-                  <p className="mt-2 text-sm text-gray-600">
-                    <strong>Industry Benchmark:</strong>{' '}
-                    {calculatorResults[calculator.id].benchmark}
-                  </p>
-                </div>
-              )}
+                  {calculatorResults[calculator.id] && (
+                    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                      <p className="font-bold text-startup-iq-green">
+                        Result: {calculatorResults[calculator.id].result}
+                      </p>
+                      <p className="mt-2 text-sm text-gray-600">
+                        <strong>Industry Benchmark:</strong>{' '}
+                        {calculatorResults[calculator.id].benchmark}
+                      </p>
+                    </div>
+                  )}
+                </form>
+              </div>
+
+              <button
+                type="submit"
+                form={`calculator-${calculator.id}`}
+                className="w-full bg-startup-iq-green text-white px-4 py-2 rounded 
+                         hover:bg-startup-iq-green/90 focus:outline-none focus:ring-2 
+                         focus:ring-startup-iq-green focus:ring-opacity-50 
+                         transition-colors mt-6"
+              >
+                Calculate
+              </button>
             </div>
           ))}
         </div>
