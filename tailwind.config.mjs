@@ -10,6 +10,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'startup-iq-green': '#00A86B',
       },
     },
   },

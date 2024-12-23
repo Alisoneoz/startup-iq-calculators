@@ -160,8 +160,8 @@ export default function Calculators() {
 
   return (
     <main className="flex-grow">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-green-600">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
+        <h1 className="text-4xl font-bold mb-8 text-center text-startup-iq-green">
           Go-to-Market Calculators
         </h1>
 
@@ -171,7 +171,7 @@ export default function Calculators() {
               key={category.id}
               className={`px-4 py-2 rounded transition-colors ${
                 activeCategory === category.id 
-                  ? 'bg-green-600 text-white' 
+                  ? 'bg-startup-iq-green text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
               onClick={() => setActiveCategory(category.id)}
@@ -191,7 +191,7 @@ export default function Calculators() {
                   : ''
               }`}
             >
-              <h2 className="text-2xl font-semibold mb-4 text-green-600">
+              <h2 className="text-2xl font-semibold mb-4 text-startup-iq-green">
                 {calculator.title}
               </h2>
               
@@ -216,7 +216,7 @@ export default function Calculators() {
                       min="0"
                       step="1"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
-                               focus:border-green-600 focus:ring focus:ring-green-600 
+                               focus:border-startup-iq-green focus:ring focus:ring-green-600 
                                focus:ring-opacity-50"
                       required
                     />
@@ -225,9 +225,9 @@ export default function Calculators() {
                 
                 <button
                   type="submit"
-                  className="w-full bg-green-600 text-white px-4 py-2 rounded 
-                           hover:bg-green-700 focus:outline-none focus:ring-2 
-                           focus:ring-green-600 focus:ring-opacity-50 
+                  className="w-full bg-startup-iq-green text-white px-4 py-2 rounded 
+                           hover:bg-startup-iq-green focus:outline-none focus:ring-2 
+                           focus:ring-startup-iq-green focus:ring-opacity-50 
                            transition-colors"
                 >
                   Calculate
@@ -236,7 +236,7 @@ export default function Calculators() {
 
               {calculatorResults[calculator.id] && (
                 <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <p className="font-bold text-green-600">
+                  <p className="font-bold text-startup-iq-green">
                     Result: {calculatorResults[calculator.id].result}
                   </p>
                   <p className="mt-2 text-sm text-gray-600">
