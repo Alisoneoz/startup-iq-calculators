@@ -12,6 +12,9 @@ export default {
         foreground: "var(--foreground)",
         'startup-iq-green': '#00A86B',
       },
+      fontFamily: {
+        'heading': ['UniNeueBold', 'sans-serif'],
+      },
     },
   },
   plugins: [],
